@@ -1,1 +1,8 @@
 
+[
+    { "day": 4, "month": 7, "year": 1776, "description": "United States Declaration of Independence is adopted." },
+    { "day": 20, "month": 7, "year": 1969, "description": "Apollo 11 lands on the Moon." },
+    { "day": 15, "month": 8, "year": 1947, "description": "India gains independence from British rule." },
+    { "day": 1, "month": 1, "year": 2000, "description": "Start of the new millennium." },
+    { "day": 9, "month": 11, "year": 1989, "description": "Fall of the Berlin Wall begins." }
+]
