@@ -1,4 +1,3 @@
-// Dropdown setup
 const monthSelect = document.getElementById("month");
 const yearSelect = document.getElementById("year");
 const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -17,7 +16,6 @@ for (let y = 1900; y <= 2025; y++) {
     yearSelect.appendChild(opt);
 }
 
-// Load events
 let eventsData = [];
 fetch("data/events.json")
     .then(res => res.json())
@@ -47,7 +45,6 @@ document.getElementById("showEvents").addEventListener("click", () => {
     });
 });
 
-// Multi-question quiz
 document.getElementById("startQuiz").addEventListener("click", () => {
     const month = parseInt(monthSelect.value);
     const year = parseInt(yearSelect.value);
