@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "December": 12
     };
 
-    // Populate month dropdown
+    // Populate months
     Object.keys(monthMap).forEach(month => {
         const option = document.createElement("option");
         option.value = month;
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         monthSelect.appendChild(option);
     });
 
-    // Populate year dropdown (adjust range as needed)
+    // Populate years
     for (let y = 1000; y <= 2025; y++) {
         const option = document.createElement("option");
         option.value = y;
@@ -35,18 +35,30 @@ document.addEventListener("DOMContentLoaded", function () {
         yearSelect.appendChild(option);
     }
 
-    // Fetch events and set up search
+    // Load events
     fetch("data/events.json")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
         .then(events => {
+            console.log("Loaded events:", events.length);
+
             document.getElementById("searchBtn").addEventListener("click", function () {
                 const selectedMonthName = monthSelect.value;
                 const selectedMonthNum = monthMap[selectedMonthName];
                 const selectedYear = parseInt(yearSelect.value);
 
+                console.log("Searching for:", selectedMonthName, selectedMonthNum, selectedYear);
+
                 const results = events.filter(e =>
-                    e.month === selectedMonthNum && e.year === selectedYear
+                    parseInt(e.month) === selectedMonthNum &&
+                    parseInt(e.year) === selectedYear
                 );
+
+                console.log("Found results:", results);
 
                 resultsContainer.innerHTML = "";
 
