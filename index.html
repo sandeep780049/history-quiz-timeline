@@ -1,41 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History in Your Pocket</title>
+    <title>History Explorer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>📜 History in Your Pocket</h1>
-        <p>Select a month and year to explore past events & test yourself with quizzes.</p>
-    </header>
+    <h1>History Explorer</h1>
 
-    <section class="controls">
-        <label for="month">Month:</label>
+    <div class="search-box">
         <select id="month"></select>
-
-        <label for="year">Year:</label>
         <input id="year" list="yearList" placeholder="Enter year">
-<datalist id="yearList"></datalist>
+        <datalist id="yearList"></datalist>
+        <button id="searchBtn">Search</button>
+        <button id="discoverBtn">Discover Random Event</button>
+        <button id="quizBtn">Start Quiz</button>
+    </div>
 
+    <div id="results"></div>
 
-        <button id="showEvents">Show Events</button>
-    </section>
-
-    <section id="timelineSection">
-        <h2>🗓 Historical Timeline</h2>
-        <div id="timeline"></div>
-    </section>
-
-    <section id="quizSection">
-        <h2>🧠 Quiz</h2>
-        <button id="startQuiz">Start Quiz</button>
-        <div id="quizContainer"></div>
-    </section>
-
+    <!-- Load Data First -->
+    <script src="data/events.js"></script>
+    <!-- Then Load Main Script -->
     <script src="script.js"></script>
 </body>
 </html>
