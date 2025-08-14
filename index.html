@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Events & Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>History in Your Pocket</h1>
+        <p>Select a month and year to explore past events.</p>
+    </header>
+
+    <section class="controls">
+        <label for="month">Month:</label>
+        <select id="month"></select>
+
+        <label for="year">Year:</label>
+        <select id="year"></select>
+
+        <button id="showEvents">Show Events</button>
+    </section>
+
+    <section id="timeline">
+        <h2>Historical Events</h2>
+        <ul id="eventList"></ul>
+    </section>
+
+    <section id="quizSection">
+        <h2>Quiz</h2>
+        <button id="startQuiz">Start Quiz</button>
+        <div id="quizContainer"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
