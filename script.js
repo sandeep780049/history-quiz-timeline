@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const monthSelect = document.getElementById("month");
-    const yearSelect = document.getElementById("year");
+    const yearInput = document.getElementById("year"); // Now an input
+    const yearList = document.getElementById("yearList");
     const resultsContainer = document.getElementById("results");
 
-    // Month mapping
     const monthMap = {
         "January": 1,
         "February": 2,
@@ -27,20 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
         monthSelect.appendChild(option);
     });
 
-    // Populate years
+    // Populate year suggestions (list)
     for (let y = 1000; y <= 2025; y++) {
         const option = document.createElement("option");
         option.value = y;
-        option.textContent = y;
-        yearSelect.appendChild(option);
+        yearList.appendChild(option);
     }
 
     // Load events
     fetch("data/events.json")
         .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error " + response.status);
-            }
+            if (!response.ok) throw new Error("HTTP error " + response.status);
             return response.json();
         })
         .then(events => {
@@ -49,9 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("searchBtn").addEventListener("click", function () {
                 const selectedMonthName = monthSelect.value;
                 const selectedMonthNum = monthMap[selectedMonthName];
-                const selectedYear = parseInt(yearSelect.value);
+                const selectedYear = parseInt(yearInput.value);
 
                 console.log("Searching for:", selectedMonthName, selectedMonthNum, selectedYear);
+
+                if (!selectedMonthNum || isNaN(selectedYear)) {
+                    resultsContainer.innerHTML = "<p>Please select a month and enter a valid year</p>";
+                    return;
+                }
 
                 const results = events.filter(e =>
                     parseInt(e.month) === selectedMonthNum &&
