@@ -1,1 +1,37 @@
 
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background: #222;
+}
+
+.controls {
+    margin: 20px;
+}
+
+select, button {
+    padding: 8px;
+    margin: 5px;
+}
+
+#timeline, #quizSection {
+    margin: 20px auto;
+    width: 80%;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+#eventList li {
+    padding: 8px;
+    border-bottom: 1px solid #444;
+}
